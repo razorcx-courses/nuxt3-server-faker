@@ -31,7 +31,7 @@
               </div>
               <div class="media-content">
                 <p class="title is-4">{{ user.name }}</p>
-                <p class="subtitle is-6">@johnsmith</p>
+                <p class="subtitle is-7">{{ user.email }}</p>
               </div>
             </div>
           </div>

@@ -12,6 +12,7 @@ export const getUsers = (take) => {
     user.id = uuidv4();
     user.name = faker.name.findName();
     user.email = faker.internet.email();
+    user.avatar = faker.image.avatar()
 
     users.push(user);
   }

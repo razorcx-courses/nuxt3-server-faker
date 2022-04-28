@@ -1,10 +1,12 @@
 <template>
   <div class="container m-6">
     <div>
-      <h1 class="title is-3 has-text-centered">Nuxt3 Server & Faker Users API</h1>
+      <h1 class="title is-3 has-text-centered">
+        Nuxt3 Server & Faker Users API
+      </h1>
     </div>
-    <div class="section">
-      <h1 class="title is-4 has-text-centered">Fake Users</h1>
+    <div class="section has-text-centered">
+      <h1 class="title is-4">Fake Users</h1>
       <input
         type="text"
         class="input my-3"
@@ -12,8 +14,28 @@
         @change="handleChange"
         v-model="take"
       />
-      <div class="box" v-for="user in users" :key="user.id">
-        <pre>{{ user }}</pre>
+
+      <div class="users is-flex is-justify-content-center is-flex-wrap-wrap	">
+        <div class="card" v-for="user in users" :key="user.id">
+          <div class="card-image">
+            <figure class="image is-square">
+              <img :src="user.avatar" :alt="user.name" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img :src="user.avatar" :alt="user.name" width="96" />
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">{{ user.name }}</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -28,7 +50,7 @@ const handleChange = () => {
 };
 
 const getUsers = async (qty) => {
-//   const data = await $fetch(`/fake-users?take=${qty}`);
+  //   const data = await $fetch(`/fake-users?take=${qty}`);
   const data = await $fetch(`/api/fake-users?take=${qty}`);
   users.value = data.users;
 };
@@ -38,4 +60,18 @@ onMounted(async () => {
 });
 </script>
 
-<style></style>
+<style scoped>
+.card {
+  min-width: 200px;
+  width: 270px;
+}
+
+.users {
+    gap: 1rem;
+}
+
+.input {
+    max-width: 100px;
+    text-align: center;
+}
+</style>

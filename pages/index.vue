@@ -37,6 +37,11 @@
           </div>
         </div>
       </div>
+
+      <div class="section buttons is-centered ">
+          <a :href="`/api/fake-users?take=${take}`" class="button is-link">Nuxt3 Server API Endpoint</a>
+          <a :href="`/fake-users?take=${take}`" class="button is-warning">Nuxt3 Server Route</a>
+      </div>
     </div>
   </div>
 </template>
